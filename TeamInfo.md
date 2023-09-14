@@ -3,7 +3,7 @@
 |   Info      |        Description     |
 | ----------- | ---------------------- |
 | TeamID      |        Team-125        |
-| TeamName    |        puredata        |
+| TeamName    |        **puredata**        |
 | Captain     |       Saumitra Chaskar      |
 | Captain     |    chaskar2@illinois.edu   |
 | Member1     |        Shubham Thakar       |
