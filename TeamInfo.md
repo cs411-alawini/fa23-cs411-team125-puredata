@@ -23,4 +23,9 @@
 
 ## Project Summary
 
-This is a summary of the project!
+### Project Title: BeatBlendr
+
+BeatBlendr will be a social media app to connect with people based on their music interests.
+
+Based on the user's likes and preferences toward songs we will create a mathematical representation of their music tastes. Using these representations we will recommend other songs, playlists, and users using clustering algorithms and standard distance-based metrics to identify “closeness” between these entities.
+
