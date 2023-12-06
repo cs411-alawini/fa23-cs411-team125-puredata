@@ -88,10 +88,10 @@ WSGI_APPLICATION = 'beatblender.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'playground',
-        'USER': 'root',
-        'PASSWORD': 'admin',
-        'HOST':'34.170.194.31',
+        'NAME': '<db>',
+        'USER': '<user>',
+        'PASSWORD': '<password>',
+        'HOST':'<gcp-sql-instance>',
         'PORT':'3306',
     }
 }
