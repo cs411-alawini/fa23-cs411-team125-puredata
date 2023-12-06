@@ -23,7 +23,7 @@ def connect_with_connector() -> sqlalchemy.engine.base.Engine:
     Uses the Cloud SQL Python Connector package.
     """
     
-    pool = sqlalchemy.create_engine("mysql+pymysql://root:admin@34.170.194.31/playground")
+    pool = sqlalchemy.create_engine("mysql+pymysql://<user>:<password>@<gcp-sql-instance-ip>/<db>")
     
     return pool
  
