@@ -1,0 +1,39 @@
+{% extends 'registration/base.html' %}
+{% block content %}
+<form action="{% url 'search' %}" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-6">
+            <input type="text" list="song_autocomplete"  name="song_name" placeholder="What do you want to listen ?" class="form-control col-sm-6 custom-select custom-select-sm">
+                <datalist id="song_autocomplete" >
+                    {% for song in song_autocomplete %}
+                        <option value="{{ song.song_name }}"></option>
+                    {% endfor %}
+                </datalist>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </div>
+</form>
+
+<div class="container">
+    <h1>You searched for ...</h1>
+    {% if searched_song %}
+    {% include './song_card.html' with song=searched_song %}
+{% endif %}
+</div>
+
+<div class="container">
+    <h1> Checkout popular songs</h1>
+    {% include './song_list.html' with song_iterable=popular_songs %}
+</div>
+
+<div class="container">
+    <h1> Checkout trending songs</h1>
+    {% include './song_list.html' with song_iterable=trending_songs %}
+</div>
+{% endblock %}
+
+
+

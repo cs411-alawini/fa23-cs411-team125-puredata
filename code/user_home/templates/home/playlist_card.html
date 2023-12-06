@@ -1,0 +1,13 @@
+{% extends 'registration/style_base.html' %}
+{% block content %}
+<div class="container" style="margin: 5px;">
+      <div class="container">
+        {% if playlist %}
+        {% include './song_list.html' with song_iterable=playlist %}
+      {% else %}
+        <p>No songs in playlist</p>
+      {% endif %}
+      </div>
+</div> 
+{% endblock %}
+

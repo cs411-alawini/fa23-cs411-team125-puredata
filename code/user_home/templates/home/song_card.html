@@ -1,0 +1,14 @@
+{% extends 'registration/style_base.html' %}
+{% block content %}
+<div class="card card-border" style="margin: 5px;">
+  <div class="panel-heading">
+    <h5 class="panel-title">{{ song.song_name }}</h5>
+  </div>
+    <div class="panel-body"  style="background-color: lightblue" >
+      <h6 class="text-muted">Album: {{ song.album_name }}</h6>
+      <h6 class="text-muted">Artist: {{ song.artist }}</h6>
+      <a href="{% url 'song_detail' song_id=song.id %}" class="btn btn-primary">Play</a>
+      <a href="{% url 'add_song_to_playlist' song_id=song.id %}" class="btn btn-primary">+ Playlist</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'registration/base.html' %}
+{% block content %}
+
+<h2>Rate this review</h2>
+<p>This review was written by: {{ review.username }}</p>
+<p>Song for this review: {{ review.song_name }}</p>
+<p>Rating provided by {{ review.username }}: {{ review.song_rating }}</p>
+<p>{{ review.username }} says: {{ review.content }}</p>
+
+<h2>Your rating for {{ review.username }}'s review</h2>
+<p>Message: {{ message.content }}</p>
+{% if is_rated %}
+<form method="DELETE" action="{% url 'delete_rate_review' review_id=review.id %}">{% csrf_token %}<button type="delete" class="btn btn-primary">Delete this rating</button></form>
+{% endif %}
+<br>
+<h2>Update your rating</h2>
+<form method="post" action="{% url 'rate_review' review_id=review.id %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">Rate review</button>
+</form>
+<br>
+{% endblock %}

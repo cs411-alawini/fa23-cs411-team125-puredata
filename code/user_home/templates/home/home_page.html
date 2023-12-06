@@ -1,0 +1,57 @@
+{% extends 'registration/base.html' %}
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+      <h2>Welcome, <span style="color: #C25100;">{{ user_name }} !</span></h2>
+      <div class="row">
+        <h3> Your playlists!</h3>
+        {% if playlists %}
+        <div class="container">
+          {% for playlist_key, playlist in playlists.items %}
+              <h3>{{ playlist_key.1 }}</h3>
+                <div>
+                  {% include './playlist_card.html' with playlist=playlist %}
+                </div>
+          {% endfor %}
+    </div>
+        {% else %}
+          <h4>You have not created any playlists yet!</h4>
+        {% endif %}
+      </div>
+      <hr>
+      <h3> Your Curated Playlists!</h3>
+        {% if similar_curated_playlists %}
+        <div class="container">
+          {% for playlist_key, playlist in similar_curated_playlists.items %}
+              <h3>BeatBlender Recommended: {{ playlist_key }}</h3>
+                <div>
+                  {% include './playlist_card.html' with playlist=playlist %}
+                </div>
+          {% endfor %}
+    </div>
+        {% else %}
+          <h4>You have not created any playlists yet!</h4>
+        {% endif %}
+      </div>
+      <hr>
+    <div class="row">
+      <h3> Your listening history!</h3>
+      {% if song_history %}
+        {% include './song_list.html' with song_iterable=song_history %}
+      {% else %}
+        <h4>Start listening now!</h4>
+      {% endif %}
+    </div>
+    <div class="row">
+      <hr>
+      <h3> Your recommendations!</h3>
+      {% if song_recommendations %}
+        {% include './song_list.html' with song_iterable=song_recommendations %}
+      {% else %}
+        <h4>Start listening now and get new songs recommended!</h4>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

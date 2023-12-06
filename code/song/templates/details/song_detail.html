@@ -1,0 +1,66 @@
+{% extends 'registration/base.html' %}
+{% block content %}
+
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+
+<h2>{{ song.song_name }} (Song is playing)</h2>
+<p>Artist: {{ song.artist }}</p>
+<p>Album: {{ song.album_name }}</p>
+<p>Genre: {{ song.song_genre }}</p>
+
+<h3>Reviews:</h3>
+{% if reviews|length == 0 %}
+  <h2>This song doest have any reviews</h2>
+{% else %}
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Review Content</th>
+      <th>Song Rating</th>
+      <th>Avg rating for this review</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    {% for review in reviews %}
+      <tr>
+        <td>{{ review.name }}</td>
+        <td>{{ review.content }}</td>
+        <td>{{ review.song_rating }}</td>
+        <td>{{ review.avg_review_rating }}</td>
+        <td><a href="{% url 'rate_review' review.id %}">rate this review</a></td>
+      </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
+{% endif %}
+<br>
+<h2>Write a new review. You can write as many as you like</h2>
+<form method="post"  action="{% url 'song_detail' song.id %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">Add Review</button>
+</form>
+<br>
+<br>
+{% endblock %}
+
