@@ -30,3 +30,5 @@ Dataset link: `https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-da
 ## Blend away your Beats!
 
 
+<sup>Gitlab Repository Link: https://gitlab.engr.illinois.edu/sthakar3/beat-blender/-/tree/master?ref_type=heads </sup>
+
